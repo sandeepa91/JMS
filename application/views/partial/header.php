@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Journal Management System</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assests/css/bootstrap.min.css">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assests/css/bootstrap-theme.min.css">
+<head>
 
-        <script src="<?php echo base_url(); ?>assests/js/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="<?php echo base_url(); ?>assests/js/bootstrap.min.js"></script>
+    <title>INSPINIA | Login</title>
+
+    <link href="<?php echo base_url('assests'); ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url('assests'); ?>/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="<?php echo base_url('assests'); ?>/css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url('assests'); ?>/css/style.css" rel="stylesheet">
