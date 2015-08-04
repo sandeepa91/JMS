@@ -6,23 +6,23 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 
-    function get_pass($uname) {
-        $this->db->select('pass');
-        $this->db->from('login');
-        $this->db->where('uname', $uname);
+    function get_pass($email) {
+        $this->db->select('id, password');
+        $this->db->from('user');
+        $this->db->where('email_address', $email);
         $res = $this->db->get();
         $arr = $res->result();
 
         if ($res->num_rows() > 0) {
-            $pass = $arr[0]->password;
-            return $pass;
+            return $arr[0];
         } else {
             return NULL;
         }
     }
 
-    function loginLogSave($uname, $ipadd) {
-        $this->db->query("INSERT INTO loginlogview(uname,ip) VALUES('" . $uname . "','" . $ipadd . "')");
+    function loginLogSave($uid, $ipadd) {
+        $data = array('user_id' => $uid, 'ip' => $ipadd);
+        $this->db->insert('login_log', $data);
     }
 
 }

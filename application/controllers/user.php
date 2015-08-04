@@ -11,32 +11,36 @@ class User extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('welcome_message');
+        $this->load->view('login');
     }
 
     public function login() {
-        $uname = $this->input->post('email_address');
+        $email = $this->input->post('email_address');
         $pass = $this->input->post('password');
         $remember = $rhis->input->post('remember');
         $ip = $this->input->server('REMOTE_ADDR');
 
+        $pass = sha1($pass);
+        
+        $user = $this->user_model->get_pass($email);
 
-        $password = $this->user_model->get_pass($uname);
-
-
-        if (!is_null($password)) {
+        if (!is_null($user)) {
 //            $pass = hash("md5", $pass);
-            if ($password === $pass) {
+            if ($user->password === $pass) {
                 $this->load->view('home');
-                $this->user_model->loginLogSave($uname, $ip);
+                $this->user_model->loginLogSave($user->id, $ip);
             } else {
-                $this->load->view('welcome_message');
+                $this->load->view('login');
             }
         } else {
-            $this->load->view('welcome_message');
+            $this->load->view('login');
         }
     }
 
+    public function register() {
+        
+    }
+    
 }
 
 /* End of file welcome.php */
