@@ -6,11 +6,23 @@
     </head>
     
     <body>
+    <div class="span12">
+        <nav class="nav">
+           <?php
+        $currentUser = $this->session->userdata('login_user');
+        echo "Weclome " . $currentUser['user'];
+        echo "<br> You are logged in at " . $currentUser['logtime'];
+        ?>   
+        </nav>
+  
+            
+        </div>
         
         <h1>
-            Welcome to the login :-D
+            Welcome to the Home :-D
         </h1>
         
+   <a href="<?php echo base_url() . "index.php/user/logout/" ?>"><button type="button" class="btn btn-primary">Logout</button> </a> 
     </body>
     
 </html>

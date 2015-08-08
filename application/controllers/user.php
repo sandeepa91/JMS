@@ -13,14 +13,16 @@ class User extends CI_Controller {
     public function index() {
         $this->load->view('login');
     }
-
+    
+    
+    
     public function login() {
         $email = $this->input->post('email_address');
         $pass = $this->input->post('password');
         $remember = $this->input->post('remember');
         $ip = $this->input->server('REMOTE_ADDR');
 
-        $pass = sha1($pass);
+        //$pass = sha1($pass);
 
         $user = $this->user_model->get_pass($email);
 
@@ -62,6 +64,11 @@ class User extends CI_Controller {
             $this->user_model->saveUser($data);
             $this->load->view('formsuccess');
         }
+    }
+    
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect(base_url() . "index.php/user/");
     }
 
 }
